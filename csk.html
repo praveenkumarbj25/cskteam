@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSK - The Official Fan Hub</title>
+    
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- EMBEDDED CSS STYLES -->
+    <style>
+        /* --- General Setup --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+        }
+
+        /* --- Header & Navigation --- */
+        header {
+            background-color: #004a91;
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            border-bottom: 5px solid #fdb913;
+        }
+
+        .logo img {
+            height: 60px; /* Adjust logo size */
+            transition: transform 0.3s ease;
+            border-radius: 40px;
+        }
+
+        .logo img:hover {
+            transform: scale(1.1);
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 600;
+            font-size: 1rem;
+            padding-bottom: 5px;
+            border-bottom: 2px solid transparent;
+            transition: color 0.3s, border-bottom-color 0.3s;
+        }
+
+        nav a:hover {
+            color: #fdb913;
+            border-bottom-color: #fdb913;
+        }
+
+        /* --- Section Styling --- */
+        section {
+            padding: 80px 40px;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #004a91;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            width: 100px;
+            height: 5px;
+            background: #fdb913;
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 5px;
+        }
+
+        p {
+            max-width: 800px;
+            margin: 0 auto 20px;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            text-align: center;
+        }
+
+        /* --- Home/Hero Section --- */
+        #home {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            height: 90vh;
+            color: white;
+            background: linear-gradient(rgba(0, 74, 145, 0.8), rgba(0, 74, 145, 0.8)), url('https://via.placeholder.com/1500x900.png?text=Roar+of+the+Lions') no-repeat center center/cover;
+            padding: 20px;
+        }
+
+        #home h1 {
+            font-size: 4.5rem;
+            font-weight: 800;
+            text-shadow: 3px 3px 10px rgba(0,0,0,0.5);
+        }
+        
+        #home p {
+            font-size: 1.5rem;
+            max-width: 700px;
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            background: #fdb913;
+            color: #004a91;
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: none;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        /* --- About Section (2-Column) --- */
+        .about-container {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            max-width: 1200px;
+            margin: auto;
+        }
+        .about-text, .about-image {
+            flex: 1;
+        }
+        .about-text p {
+            text-align: left;
+        }
+        .about-image img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        /* --- Players Section --- */
+        .player-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            max-width: 1200px;
+            margin: auto;
+        }
+        .player-card {
+            background: #ffffff;
+            width: 250px;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .player-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 74, 145, 0.15);
+        }
+        .player-card img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            border: 5px solid #fdb913;
+        }
+        .player-card h3 {
+            color: #004a91;
+            font-size: 1.4rem;
+        }
+        .player-card p {
+            font-size: 1rem;
+            color: #555;
+            font-weight: 600;
+        }
+        
+        /* --- The Yellow Army Section --- */
+        #fans {
+            background-color: #fff;
+        }
+
+        /* --- History Section (Timeline) --- */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: auto;
+        }
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: #fdb913;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            margin-bottom: 30px;
+        }
+        .timeline-item.left {
+            left: 0;
+            padding-right: 60px; text-align: right;
+        }
+        .timeline-item.right {
+            left: 50%;
+            padding-left: 60px;
+        }
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background-color: white;
+            border: 4px solid #004a91;
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        .timeline-item.left::after { right: -17px; }
+        .timeline-item.right::after { left: -17px; }
+        .timeline-content {
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .timeline-content h3 { font-size: 1.2rem; margin-bottom: 5px; color: #004a91; }
+
+        /* --- Contact Section --- */
+        #contact {
+            background-color: #004a91;
+            color: white;
+        }
+        #contact h2 {
+            color: white;
+        }
+        .contact-container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            color: #333;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .contact-form input, .contact-form textarea {
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: 'Poppins', sans-serif;
+        }
+        .contact-form button {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: #1c2a4c;
+            color: #fff;
+            text-align: center;
+            padding: 40px 20px;
+        }
+        .social-icons a {
+            display: inline-block;
+            margin: 0 15px;
+            transition: transform 0.3s;
+        }
+        .social-icons a:hover {
+            transform: translateY(-5px);
+        }
+        .social-icons svg {
+            width: 28px;
+            height: 28px;
+            fill: #fdb913;
+            transition: fill 0.3s;
+        }
+        .social-icons a:hover svg {
+            fill: #ffffff;
+        }
+        footer p {
+            margin-top: 20px;
+            font-size: 1rem;
+            opacity: 0.7;
+        }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="#home" class="logo">
+        <!-- CSK Team Logo -->
+        <img src="csklogo.png" alt="CSK Team Logo">
+    </a>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#players">Players</a>
+        <a href="#fans">Fans</a>
+        <a href="#history">History</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<main>
+    <section id="home">
+        <h1>CHENNAI SUPER KINGS</h1>
+        <p>The Pride of Chennai. The Roar of the Nation. Welcome to the home of the five-time champions.</p>
+        <a href="#about" class="cta-button">Explore The Legacy</a>
+    </section>
+
+    <section id="about">
+        <h2>The Heart of a Champion</h2>
+        <div class="about-container">
+            <div class="about-text">
+                <p>Founded in 2008, Chennai Super Kings (CSK) is more than just a cricket team; it's an emotion. Based in Chennai, the team has established a legacy of excellence, consistency, and thrilling comebacks under the iconic leadership of MS Dhoni. </p>
+                <p>Our home ground, the M. A. Chidambaram Stadium, is a fortress where the spirit of cricket comes alive. We believe in playing with courage, fighting until the last ball, and honoring the unwavering support of our fans. This philosophy has driven us to become one of the most successful franchises in IPL history. </p>
+            </div>
+            <div class="about-image">
+                <img src="dh" alt="CSK Team Together">
+            </div>
+        </div>
+    </section>
+
+    <section id="players">
+        <h2>Meet The Lions</h2>
+        <div class="player-container">
+            <div class="player-card">
+                <img src="dhon" alt="MS Dhoni">
+                <h3>MS Dhoni</h3>
+                <p>Captain & Wicketkeeper</p>
+            </div>
+            <div class="player-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5KTXIlMps3Qy-oHy89oG9qwwbA-UtJZsHSA&s" alt="Ravindra Jadeja">
+                <h3>Ravindra Jadeja</h3>
+                <p>All-Rounder</p>
+            </div>
+            <div class="player-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7i_04D_4voo8-8qnYcPjQEeM_G7etl8CvbQ&s" alt="Ruturaj Gaikwad">
+                <h3>Ruturaj Gaikwad</h3>
+                <p>Top-Order Batsman</p>
+            </div>
+            <div class="player-card">
+                <img src="https://im.rediff.com/cricket/2012/may/12vijay.jpg" alt="Murali Vijay">
+                <h3>Murali Vijay</h3>
+                <p>opener</p>
+            </div>
+            <div class="player-card">
+                <img src="rai.jpeg" alt="Suresh Raina">
+                <h3>Suresh Raina</h3>
+                <p>Top-Order Batsman</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="fans">
+        <h2>The Yellow Army</h2>
+        <p>Our fans are our backbone. The "Yellow Army" is a global family, united by a shared passion for CSK. Their unwavering support, filling stadiums with a sea of yellow and roaring for every boundary and wicket, is our greatest strength. This team belongs to you.</p>
+        <img src="fans.jpeg" alt="CSK Fans" style="width: 100%; max-width: 1000px; margin: 20px auto; display: block; border-radius: 15px;">
+    </section>
+
+    <section id="history">
+        <h2>Our Victorious Journey</h2>
+        <div class="timeline">
+            <div class="timeline-item left">
+                <div class="timeline-content"><h3>2010: First IPL Title</h3><p>Defeated Mumbai Indians to lift our first IPL trophy. </p></div>
+            </div>
+            <div class="timeline-item right">
+                <div class="timeline-content"><h3>2011: Back-to-Back Champions</h3><p>Became the first team to win consecutive IPL titles.</p></div>
+            </div>
+            <div class="timeline-item left">
+                <div class="timeline-content"><h3>2018: The Ultimate Comeback</h3><p>Returned after two years to win our third championship.</p></div>
+            </div>
+            <div class="timeline-item right">
+                <div class="timeline-content"><h3>2021: The Fourth Roar</h3><p>Dominated the season and defeated KKR in the final.</p></div>
+            </div>
+            <div class="timeline-item left">
+                <div class="timeline-content"><h3>2023: Champions for the Fifth Time</h3><p>A historic win against Gujarat Titans to equal the record for most titles.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Get In Touch</h2>
+        <div class="contact-container">
+            <form class="contact-form">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea rows="5" placeholder="Your Message" required></textarea>
+                <button type="submit" class="cta-button">Send Roar!</button>
+            </form>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="social-icons">
+        <a href="#" aria-label="Facebook" title="Facebook">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
+        </a>
+        <a href="#" aria-label="Twitter" title="Twitter">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616v.064c0 2.298 1.634 4.212 3.793 4.649-.65.177-1.354.23-2.06.087.625 1.902 2.445 3.284 4.6 3.321-1.683 1.317-3.812 2.102-6.115 2.102-.399 0-.79-.023-1.175-.068 2.179 1.394 4.768 2.212 7.548 2.212 9.058 0 14.01-7.502 14.01-14.01 0-.213-.005-.426-.015-.637.962-.695 1.797-1.562 2.457-2.54z"/></svg>
+        </a>
+        <a href="#" aria-label="Instagram" title="Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.012 3.584-.07 4.85c-.148 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.012-3.584.07-4.85c.148-3.225 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.85-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072s3.667-.014 4.947-.072c4.358-.2 6.78-2.618 6.98-6.98.059-1.281.073-1.689.073-4.948s-.014-3.667-.072-4.947c-.2-4.358-2.618-6.78-6.98-6.98-1.281-.059-1.689-.073-4.948-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.441 1.441 1.441 1.441-.645 1.441-1.441-.645-1.44-1.441-1.44z"/></svg>
+        </a>
+    </div>
+    <p>© 2025 CSK Fan Hub | Whistle Podu!</p>
+</footer>
+
+</body>
+</html>
